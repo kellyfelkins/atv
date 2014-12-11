@@ -1,6 +1,17 @@
 # ATV: Ascii Table Values
 
-ATV is a reader for data in ascii table format patterned after ruby's CSV library.
+ATV is a reader for data in ascii table format.
+It allows you to read data formatted like this:
+
+<pre>
+|------------------+--------------------|
+| name             | dob                |
+|------------------+--------------------|
+| Malcolm Reynolds | September 20, 2468 |
+|------------------+--------------------|
+| Zoe Washburne    | February 15, 2484  |
+|------------------+--------------------|
+</pre>
 
 ## Installation
 
@@ -20,24 +31,22 @@ Or install it yourself as:
 
 ## Usage
 
-**Reading From a File**
+Rows are returned or yielded as [CSV::Row][1] objects.
+
+**Reading a String**
 
 ```ruby
-ATV.foreach("path/to/file.atv") do |row|
+atv = ATV.from_string(string)
+atv.each do |row|
   # use row here...
 end
 ```
 
-**All At Once**
+**Reading from am IO object**
 
 ```ruby
-arr_of_arrs = ATV.read("path/to/file.atv")
-```
-
-**Reading From a String**
-
-```ruby
-ATV.parse("|ATV|data|String|") do |row|
+atv = ATV.new(io)
+atv.each do |row|
   # use row here...
 end
 ```
@@ -50,3 +59,4 @@ end
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
 
+[1]: http://www.ruby-doc.org/stdlib/libdoc/csv/rdoc/CSV/Row.html
