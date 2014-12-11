@@ -8,13 +8,19 @@ class ATV
     @io = io
     @io.readline
     @keys = split_table_line(@io.readline.chomp)
+    @io.readline
   end
 
   def each
+    line_data = []
     @io.each_line do |line|
       line.chomp!
-      next if line =~ /^\|\-/
-      yield CSV::Row.new(@keys, split_table_line(line))
+      if line =~ /^\|\-/
+        yield CSV::Row.new(@keys, line_data.transpose.map{|tokens| tokens.reject(&:empty?).join(' ')}) if !line_data.empty?
+        line_data = []
+        next
+      end
+      line_data << split_table_line(line)
     end
   end
 
