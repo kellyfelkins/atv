@@ -3,20 +3,24 @@ require_relative '../lib/atv'
 
 describe ATV do
   DATA_AS_TABLE = <<-TEXT
-|-----------+--------------------|
-| name      | dob                |
-|-----------+--------------------|
-| Malcolm   | September 20, 2468 |
-| Reynolds  |                    |
-|-----------+--------------------|
-| Zoe       | February 15, 2484  |
-| Washburne |                    |
-|-----------+--------------------|
+|-----------+--------------------+--------------|
+| name      | dob                | predictable? |
+|-----------+--------------------+--------------|
+| Malcolm   | September 20, 2468 | false        |
+| Reynolds  |                    |              |
+|-----------+--------------------+--------------|
+| Zoe       | February 15, 2484  | true         |
+| Washburne |                    |              |
+|-----------+--------------------+--------------|
+| Derrial   | null               | true         |
+| Book      |                    |              |
+|-----------+--------------------+--------------|
   TEXT
 
   EXPECTED = [
-    ['Malcolm Reynolds', 'September 20, 2468'],
-    ['Zoe Washburne', 'February 15, 2484']
+    ['Malcolm Reynolds', 'September 20, 2468', false],
+    ['Zoe Washburne', 'February 15, 2484', true],
+    ['Derrial Book', nil, true]
   ]
 
   describe ".new(io)" do
@@ -34,9 +38,11 @@ describe ATV do
           row['name'].must_equal(EXPECTED[i][0])
           row[1].must_equal(EXPECTED[i][1])
           row['dob'].must_equal(EXPECTED[i][1])
+          row[2].must_equal(EXPECTED[i][2])
+          row['predictable?'].must_equal(EXPECTED[i][2])
           i += 1
         end
-        i.must_equal(2)
+        i.must_equal(3)
       end
 
       it 'without a block it returns an enumerator of data as CSV rows' do

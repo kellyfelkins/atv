@@ -4,6 +4,12 @@ require 'csv'
 class ATV
   include Enumerable
 
+  SUBSTITUTIONS = {
+    'true' => true,
+    'false' => false,
+    'null' => nil
+  }
+
   def initialize(io)
     @io = io
     @io.readline
@@ -16,7 +22,12 @@ class ATV
     @io.each_line do |line|
       line.chomp!
       if line =~ /^\|\-/
-        yield CSV::Row.new(@keys, line_data.transpose.map{|tokens| tokens.reject(&:empty?).join(' ')}) if !line_data.empty?
+        yield CSV::Row.new(@keys, line_data.
+          transpose.
+          map{|tokens| tokens.
+          reject(&:empty?).
+          join(' ')}.
+          map{|token| SUBSTITUTIONS.has_key?(token) ? SUBSTITUTIONS[token] : token }) if !line_data.empty?
         line_data = []
         next
       end
