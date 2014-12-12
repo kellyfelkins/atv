@@ -15,6 +15,7 @@ describe ATV do
 | Derrial   | null               | true         |
 | Book      |                    |              |
 |-----------+--------------------+--------------|
+
   TEXT
 
   EXPECTED = [

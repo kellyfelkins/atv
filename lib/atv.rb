@@ -44,6 +44,7 @@ class ATV
   protected
 
   def split_table_line(line)
+    return [] if line.empty?
     line[1..-1].split('|').map(&:strip)
   end
 end
