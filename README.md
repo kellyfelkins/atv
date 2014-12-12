@@ -33,6 +33,30 @@ Or install it yourself as:
 
 Rows are returned or yielded as [CSV::Row][1] objects.
 
+<pre>
+|-----------------------+------------------------------+-----------------------------------|
+| **Ascii Table Value** | **Returned Value**           | **Notes**                         |
+|-----------------------+------------------------------+-----------------------------------|
+| Malcolm Reynolds      | "Malcolm Reynolds"           | Most values returned as string    |
+|-----------------------+------------------------------+-----------------------------------|
+| 123                   | "123"                        | including numbers                 |
+|-----------------------+------------------------------+-----------------------------------|
+| wrapped strings are   | "wrapped strings are folded" | Similar to yaml, wrapped          |
+| folded                |                              | strings are folded with a single  |
+|                       |                              | space replacing the new line      |
+|-----------------------+------------------------------+-----------------------------------|
+|                       | blank values are omitted     | The CSV::Row object will not      |
+|                       |                              | include columns with blank values |
+|-----------------------+------------------------------+-----------------------------------|
+| null                  | nil                          | nil, true, and false are          |
+|                       |                              | special values                    |
+|-----------------------+------------------------------+-----------------------------------|
+| true                  | true                         |                                   |
+|-----------------------+------------------------------+-----------------------------------|
+| false                 | false                        |                                   |
+|-----------------------+------------------------------+-----------------------------------|
+</pre>
+
 **Reading a String**
 
 ```ruby
@@ -50,15 +74,6 @@ atv.each do |row|
   # use row here...
 end
 ```
-
-**Special Values**
-
-| Value of Table Cell | Value Returned           |
-|---------------------|--------------------------|
-| empty cell          | cell is omitted from row |
-| true                | `true`                   |
-| false               | `false`                  |
-| null                | `nil`                    |
 
 ## Contributing
 
