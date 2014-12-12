@@ -54,7 +54,7 @@ end
 **Special Values**
 
 | Value of Table Cell | Value Returned           |
-|---------------------+--------------------------|
+|---------------------|--------------------------|
 | empty cell          | cell is omitted from row |
 | true                | `true`                   |
 | false               | `false`                  |
