@@ -48,7 +48,7 @@ Rows are returned or yielded as [CSV::Row][1] objects.
 |                       | not available                | The CSV::Row object will not      |
 |                       |                              | include columns with blank values |
 |-----------------------+------------------------------+-----------------------------------|
-| null                  | nil                          | nil, true, and false are          |
+| null                  | nil                          | null, true, and false are         |
 |                       |                              | special values                    |
 |-----------------------+------------------------------+-----------------------------------|
 | true                  | true                         |                                   |
