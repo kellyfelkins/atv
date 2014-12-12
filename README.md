@@ -51,6 +51,15 @@ atv.each do |row|
 end
 ```
 
+**Special Values**
+
+| Value of Table Cell | Value Returned           |
+|---------------------+--------------------------|
+| empty cell          | cell is omitted from row |
+| true                | `true`                   |
+| false               | `false`                  |
+| null                | `nil`                    |
+
 ## Contributing
 
 1. Fork it ( https://github.com/IndieKelly/atv/fork )

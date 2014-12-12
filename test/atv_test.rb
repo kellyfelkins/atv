@@ -9,7 +9,7 @@ describe ATV do
 | Malcolm   | September 20, 2468 | false        |
 | Reynolds  |                    |              |
 |-----------+--------------------+--------------|
-| Zoe       | February 15, 2484  | true         |
+| Zoe       | February 15, 2484  |              |
 | Washburne |                    |              |
 |-----------+--------------------+--------------|
 | Derrial   | null               | true         |
@@ -19,7 +19,7 @@ describe ATV do
 
   EXPECTED = [
     ['Malcolm Reynolds', 'September 20, 2468', false],
-    ['Zoe Washburne', 'February 15, 2484', true],
+    ['Zoe Washburne', 'February 15, 2484'],
     ['Derrial Book', nil, true]
   ]
 

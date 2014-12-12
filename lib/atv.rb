@@ -22,12 +22,12 @@ class ATV
     @io.each_line do |line|
       line.chomp!
       if line =~ /^\|\-/
-        yield CSV::Row.new(@keys, line_data.
+        csv_row = CSV::Row.new(@keys, line_data.
           transpose.
-          map{|tokens| tokens.
-          reject(&:empty?).
-          join(' ')}.
-          map{|token| SUBSTITUTIONS.has_key?(token) ? SUBSTITUTIONS[token] : token }) if !line_data.empty?
+          map { |tokens| tokens.reject(&:empty?).join(' ') }.
+          map { |token| SUBSTITUTIONS.has_key?(token) ? SUBSTITUTIONS[token] : token }
+        ).delete_if {|k, v| v == ''}
+        yield csv_row if csv_row.size > 0
         line_data = []
         next
       end
