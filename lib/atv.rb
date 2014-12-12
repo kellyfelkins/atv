@@ -10,10 +10,12 @@ class ATV
     'null' => nil
   }
 
+  attr_reader(:headers)
+  
   def initialize(io)
     @io = io
     @io.readline
-    @keys = split_table_line(@io.readline.chomp)
+    @headers = split_table_line(@io.readline.chomp)
     @io.readline
   end
 
@@ -22,7 +24,7 @@ class ATV
     @io.each_line do |line|
       line.chomp!
       if line =~ /^\|\-/
-        csv_row = CSV::Row.new(@keys, line_data.
+        csv_row = CSV::Row.new(@headers, line_data.
           transpose.
           map { |tokens| tokens.reject(&:empty?).join(' ') }.
           map { |token| SUBSTITUTIONS.has_key?(token) ? SUBSTITUTIONS[token] : token }
