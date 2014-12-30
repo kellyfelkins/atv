@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Kelly Felkins"]
   spec.email         = ["kelly@indiegogo.com"]
   spec.summary       = "Read Ascii Table Values"
-  spec.description   = "Read data from an ascii table. Inspired by Ruby's CSV library."
+  spec.description   = "Read data from an ascii table."
   spec.homepage      = "https://github.com/IndieKelly/atv"
   spec.license       = "MIT"
 
