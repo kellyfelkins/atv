@@ -13,6 +13,11 @@ It allows you to read data formatted like this:
 |------------------+--------------------|
 </pre>
 
+In [Ascii Tables For Clearer Testing][1] I discuss using ascii tables to improve comprehension
+of software tests.
+
+[1]: http://technology.indiegogo.com/2015/01/ascii-tables-for-clearer-testing/
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -31,7 +36,9 @@ Or install it yourself as:
 
 ## Usage
 
-Rows are returned or yielded as [CSV::Row][1] objects.
+Rows are returned or yielded as [CSV::Row][2] objects.
+
+[2]: http://www.ruby-doc.org/stdlib/libdoc/csv/rdoc/CSV/Row.html
 
 <pre>
 |-----------------------+------------------------------+-----------------------------------|
@@ -82,5 +89,3 @@ end
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
-
-[1]: http://www.ruby-doc.org/stdlib/libdoc/csv/rdoc/CSV/Row.html
