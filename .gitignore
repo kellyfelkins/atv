@@ -14,3 +14,5 @@
 mkmf.log
 /.idea
 *.gem
+.ruby-version
+.ruby-gemset

@@ -13,6 +13,17 @@ It allows you to read data formatted like this:
 |------------------+--------------------|
 </pre>
 
+or, without separators, like this:
+
+<pre>
+|------------------+--------------------|
+| name             | dob                |
+|------------------+--------------------|
+| Malcolm Reynolds | September 20, 2468 |
+| Zoe Washburne    | February 15, 2484  |
+|------------------+--------------------|
+</pre>
+
 In [Ascii Tables For Clearer Testing][1] I discuss using ascii tables to improve comprehension
 of software tests.
 
