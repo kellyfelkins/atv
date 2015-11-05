@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["kelly@indiegogo.com"]
   spec.summary       = "Read Ascii Table Values"
   spec.description   = "Read data from an ascii table."
-  spec.homepage      = "https://github.com/IndieKelly/atv"
+  spec.homepage      = "https://github.com/indiegogo/atv"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
