@@ -96,6 +96,8 @@ atv.each do |row|
 end
 ```
 
+More examples can be found in the Examples of Testing With ASCII Tables [repo](https://github.com/kellyfelkins/examples_of_testing_with_ascii_tables).
+
 ## Contributing
 
 1. Fork it ( https://github.com/kellyfelkins/atv )
