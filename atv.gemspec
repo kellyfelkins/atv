@@ -7,10 +7,10 @@ Gem::Specification.new do |spec|
   spec.name          = "atv"
   spec.version       = Atv::VERSION
   spec.authors       = ["Kelly Felkins"]
-  spec.email         = ["kelly@indiegogo.com"]
+  spec.email         = ["kelly@restlater.com"]
   spec.summary       = "Read Ascii Table Values"
   spec.description   = "Read data from an ascii table."
-  spec.homepage      = "https://github.com/indiegogo/atv"
+  spec.homepage      = "https://github.com/kellyfelkins/atv"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")

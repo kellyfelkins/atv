@@ -27,7 +27,10 @@ or, without separators, like this:
 In [Ascii Tables For Clearer Testing][1] I discuss using ascii tables to improve comprehension
 of software tests.
 
-[1]: http://technology.indiegogo.com/2015/01/ascii-tables-for-clearer-testing/
+[1]: https://punctuatedproductivity.wordpress.com/2016/02/02/ascii-tables-for-clearer-testing/
+
+This gem was originally created when I worked at Indiegogo. Indiegogo has graciously transferred ownership of the 
+gem to me so that I can maintain it going forward. 
 
 ## Installation
 
@@ -95,7 +98,7 @@ end
 
 ## Contributing
 
-1. Fork it ( https://github.com/IndieKelly/atv/fork )
+1. Fork it ( https://github.com/kellyfelkins/atv )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
