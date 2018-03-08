@@ -66,8 +66,8 @@ Rows are returned or yielded as [CSV::Row][2] objects.
 | folded                |                              | strings are folded with a single  |
 |                       |                              | space replacing the new line      |
 |-----------------------+------------------------------+-----------------------------------|
-|                       | not available                | The CSV::Row object will not      |
-|                       |                              | include columns with blank values |
+|                       | nil                          | The CSV::Row object will have nil |
+|                       |                              | for blank values                  |
 |-----------------------+------------------------------+-----------------------------------|
 | null                  | nil                          | null, true, and false are         |
 |                       |                              | special values                    |

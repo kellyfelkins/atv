@@ -7,7 +7,8 @@ class ATV
   SUBSTITUTIONS = {
     'true' => true,
     'false' => false,
-    'null' => nil
+    'null' => nil,
+    '' => nil
   }
 
   attr_reader :headers
@@ -27,11 +28,9 @@ class ATV
       next if line =~ /^\s*#/
       line.chomp!
       if (!@has_separators && !line_data.empty?) || line =~ /^\|\-/
-        csv_row = CSV::Row.new(@headers, line_data.
-          transpose.
-          map { |tokens| tokens.reject(&:empty?).join(' ') }.
-          map { |token| SUBSTITUTIONS.has_key?(token) ? SUBSTITUTIONS[token] : token }
-        ).delete_if {|k, v| v == ''}
+        folded_items = line_data.transpose.map { |tokens| tokens.join(' ').rstrip }
+        converted_folded_items = folded_items.map { |token| SUBSTITUTIONS.has_key?(token) ? SUBSTITUTIONS[token] : token }
+        csv_row = CSV::Row.new(@headers, converted_folded_items)
         yield csv_row if csv_row.size > 0
         line_data = []
         next if @has_separators

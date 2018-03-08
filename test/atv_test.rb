@@ -14,6 +14,8 @@ describe ATV do
 | Zoe       | February 15, 2484  |              |
 | Washburne |                    |              |
 |-----------+--------------------+--------------|
+| Jane      |                    | true         |
+|-----------+--------------------+--------------|
 # | Inara     | October 14, 2489   |              |
 # | Sara      |                    |              |
 # |-----------+--------------------+--------------|
@@ -23,7 +25,8 @@ describe ATV do
       TEXT
       @expected = [
           ['Malcolm Reynolds', 'September 20, 2468', false],
-          ['Zoe Washburne', 'February 15, 2484'],
+          ['Zoe Washburne', 'February 15, 2484', nil],
+          ['Jane', nil, true],
           ['Derrial Book', nil, true]
       ]
     end
@@ -46,7 +49,7 @@ describe ATV do
           row['predictable?'].must_equal(@expected[i][2])
           i += 1
         end
-        i.must_equal(3)
+        i.must_equal(4)
       end
 
       it 'without a block it returns an enumerator of data as CSV rows' do
@@ -87,7 +90,7 @@ describe ATV do
 
         expected = [
             ['Malcolm', 'September 20, 2468', false],
-            ['Zoe', 'February 15, 2484'],
+            ['Zoe', 'February 15, 2484', nil],
             ['Derrial', nil, true]
         ]
         @atv = ATV.new(StringIO.new(data_as_table))
