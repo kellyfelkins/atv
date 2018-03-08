@@ -1,4 +1,4 @@
-require "atv/version"
+require_relative "./atv/version"
 require 'csv'
 
 class ATV
@@ -11,7 +11,7 @@ class ATV
   }
 
   attr_reader :headers
-  
+
   def initialize(io)
     @io = io
     @has_separators = has_separators?(@io)
@@ -24,6 +24,7 @@ class ATV
   def each
     line_data = []
     @io.each_line do |line|
+      next if line =~ /^\s*#/
       line.chomp!
       if (!@has_separators && !line_data.empty?) || line =~ /^\|\-/
         csv_row = CSV::Row.new(@headers, line_data.

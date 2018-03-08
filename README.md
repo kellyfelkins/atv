@@ -13,7 +13,7 @@ It allows you to read data formatted like this:
 |------------------+--------------------|
 </pre>
 
-or, without separators, like this:
+or, _without_ separators, like this:
 
 <pre>
 |------------------+--------------------|
@@ -76,6 +76,9 @@ Rows are returned or yielded as [CSV::Row][2] objects.
 |-----------------------+------------------------------+-----------------------------------|
 | false                 | false                        |                                   |
 |-----------------------+------------------------------+-----------------------------------|
+#| commented rows        | not included                 | As you would expect, commented    |
+#|                       |                              | rows are not included             |
+#|-----------------------+------------------------------+-----------------------------------|
 </pre>
 
 **Reading a String**

@@ -14,6 +14,9 @@ describe ATV do
 | Zoe       | February 15, 2484  |              |
 | Washburne |                    |              |
 |-----------+--------------------+--------------|
+# | Inara     | October 14, 2489   |              |
+# | Sara      |                    |              |
+# |-----------+--------------------+--------------|
 | Derrial   | null               | true         |
 | Book      |                    |              |
 |-----------+--------------------+--------------|
@@ -30,7 +33,7 @@ describe ATV do
         @atv = ATV.new(StringIO.new(@data_as_table))
       end
 
-      it 'with a block it yields rows of data as CSV rows' do
+      it 'with a block it yields rows of data as CSV rows and ignores commented lines' do
         i = 0
 
         @atv.each do |row|
